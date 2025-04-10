@@ -11,7 +11,7 @@ The rule for iptable is:
 <br>
 On the meshcom gateway node the commands to execute are:<br><br>
 --extudp on (enables sending of received data via network/lan, udp protocol)<br>
---extudpip 192.168.0.4 (insert the ip where texttransmitd is present)<br>
+--extudpip 192.168.0.4 (insert the ip where texttransmitd is present)<br><br>
 
 The udp port used is forcedly 1799. If the systems are not present on the same lan, it is also necessary to manage the relative nat and opening ports on the firewall that manages the connectivity.<br>
 
