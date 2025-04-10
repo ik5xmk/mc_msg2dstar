@@ -3,11 +3,11 @@ Simple code to send messages from meshcom network to DSTAR devices
 
 A meshcom lora gateway node can send received packets to an ip or in a broadcast manner via udp. This code acquires packets that respect certain rules (messages) and sends them to a dstar gateway. This gateway will send them out in RF on the connected repeater bridge and they can be displayed on the dstar radio devices. The system was tested with the two gateways (lora and ircddbgateway) present on the same lan network.<br>
 
-On the dstar repeater bridge side, the Pi-star distribution is used but any solution is fine as long as it contains the texttransmitd software by Jonathan G4KLX (this is the path /usr/local/bin/texttransmitd if it differs then change it in the code). Pi-star has a firewall, you need to add a rule in iptable, better in the /root/ipv4.fw file so that it is always present even at reboot and updates. For the management of commands in Pi-star refer to the support groups or forums.<br>
+On the dstar repeater bridge side, the Pi-star distribution is used but any solution is fine as long as it contains the texttransmitd software by Jonathan G4KLX (this is the path /usr/local/bin/texttransmitd if it differs then change it in the code). Pi-star has a firewall, you need to add a rule in iptables, better in the /root/ipv4.fw file so that it is always present even at reboot and updates. For the management of commands in Pi-star refer to the support groups or forums.<br>
 
-The rule for iptable is:
+The rule for iptables is:
 <br>
-
+iptables -I INPUT -p udp --dport 1799 -j ACCEPT
 <br>
 On the meshcom gateway node the commands to execute are:<br><br>
 --extudp on (enables sending of received data via network/lan, udp protocol)<br>
